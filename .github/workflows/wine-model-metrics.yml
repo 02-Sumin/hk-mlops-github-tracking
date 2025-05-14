@@ -1,6 +1,6 @@
 name: model-training
 on: [push]
-permissions: write-all  #💛쓰기권한 부여!
+permissions: write-all
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -19,7 +19,6 @@ jobs:
           python train.py
       - name: Generate Report
         env:
-     	      # GITHUB 커밋 로그에 레포트를 출력하기 위해 GITHUB 토큰을 넣어줍니다.
             REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "## MODEL METRICS" > report.md
